@@ -1,0 +1,34 @@
+@charset "utf-8";
+/**
+ * created: 2016-11-25
+ * author : zhangzw
+ */
+
+/*初始页面loading动画*/
+.loading-wrapper{
+	width: 100%;
+	height: 100%;
+	background-color: #178FE5;
+}
+
+/*主体内容*/
+header{position: absolute;left: 0;right: 0;top: 0;background-color: #F1F1F1;opacity: .5;z-index: 1}
+footer{position: absolute;left: 0;right: 0;bottom: 0;}
+
+header>a i{padding: 0 10px}
+header>a:hover strong{color: #33AAFF;}
+.main section{}
+
+/*封皮*/
+.wrappage{width: 280px;height: 280px;background-color: #252A30;margin: 0 auto;transform: translateY(50%);-webkit-transform: translateY(50%);color:#FAFFFF;}
+.wrappage .block{width: 100%;}
+.wrappage .block.captain{background-color: #000000;}
+.wrappage .block.captain .cn{font-size: 64px; position: absolute;left: 0;top: -10px;}
+.wrappage .block.captain .en{width: 100%;text-align: right;}
+.wrappage .block.captain .en p {font-size: 30px;font-family: fantasy;}
+
+.wrappage .block.content .context{position: absolute;bottom: 0}
+.wrappage .block.content .context h3{font-size: 24px;color: rgba(255,255,255,.7);padding-left: 2px;}
+.wrappage .block.content .context h3.phone{font-family: cursive;}
+.wrappage .block.content .context h3.email{font-family: Verdana, Arial, Helvetica, sans-serif;}
+
