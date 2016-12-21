@@ -1,9 +1,9 @@
 @charset "utf-8";
 /**
+ * update : 2016-12-21 <!-- +characters -->
  * created: 2016-11-25
  * author : zhangzw
  */
-
 /*初始页面loading动画*/
 .loading-wrapper{
 	width: 100%;
@@ -17,9 +17,11 @@ footer{position: absolute;left: 0;right: 0;bottom: 0;}
 
 header>a i{padding: 0 10px}
 header>a:hover strong{color: #33AAFF;}
-.main section{}
+.main section{height: 100%;width: 100%;}
 
-/*封皮*/
+
+
+/*封皮#31393C*/
 .wrappage{width: 280px;height: 280px;background-color: #252A30;margin: 0 auto;transform: translateY(50%);-webkit-transform: translateY(50%);color:#FAFFFF;}
 .wrappage .block{width: 100%;}
 .wrappage .block.captain{background-color: #000000;}
@@ -31,4 +33,66 @@ header>a:hover strong{color: #33AAFF;}
 .wrappage .block.content .context h3{font-size: 24px;color: rgba(255,255,255,.7);padding-left: 2px;}
 .wrappage .block.content .context h3.phone{font-family: cursive;}
 .wrappage .block.content .context h3.email{font-family: Verdana, Arial, Helvetica, sans-serif;}
+
+
+/*#fp-nav*/
+#fp-nav {position: fixed;z-index: 100;margin-top: -32px;top: 50%;opacity: 1;-webkit-transform: translate3d(0, 0, 0)}
+#fp-nav.left {left: 17px}
+#fp-nav ul{margin: 0;padding: 0}
+#fp-nav ul li{display: block;width: 14px;height: 13px;margin: 7px;position: relative}
+#fp-nav ul li a{display: block;position: relative;z-index: 1;width: 100%;height: 100%;cursor: pointer;text-decoration: none}
+#fp-nav ul li a.active span,
+#fp-nav ul li:hover a.active span{height: 12px;width: 12px;margin: -6px 0 0 -6px;border-radius: 100%}
+#fp-nav ul li a span{border-radius: 50%;position: absolute;z-index: 1;height: 4px;width: 4px;border: 0;background: #333;left: 50%;top: 50%;margin: -2px 0 0 -2px;-webkit-transition: all .1s ease-in-out;-moz-transition: all .1s ease-in-out;-o-transition: all .1s ease-in-out;transition: all .1s ease-in-out}
+#fp-nav ul li:hover a span{width: 10px;height: 10px;margin: -5px 0 0 -5px}
+#fp-nav ul li:before {content: '';width: 0;border-left: 1px dotted #d8d8d8;height: 5em;display: inline-block;position: absolute;left: 7px;top: -2em}
+#fp-nav ul li a span {background: #D8D8D8;width: 11px;height: 11px;margin: -2px 0 0 -5px}
+#fp-nav ul li a.active span,
+#fp-nav ul li:hover a span {background: #323A45;border: 1px solid #323A45;box-shadow: inset 0 0 0 3px #FFF;width: 10px!important;height: 10px!important;margin: -2px 0 0 -5px!important}
+
+
+/**/
+.characters {
+    position: absolute;
+    bottom: 8%;
+    right: 5%;
+    width: 580px;
+    height: 500px;
+    transition: 2.5s;
+    transform: rotate(5deg);
+}
+.characters .characters-list{
+	position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 280px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-transform: uppercase;
+    text-shadow: 1px 1px 1px #000;
+    font: 700 26px "PT Sans Narrow";
+    text-align: right;
+    line-height: 1.7;
+}
+.characters .characters-list li{
+	opacity: 0;
+    transition: 0.5s;
+    transform: translateX(20px);
+    margin: 0;
+}
+.characters .characters-list li a{
+	padding: 5px 20px;
+}
+.characters .characters-poster{
+	position: absolute !important;
+    bottom: 0;
+    right: 0;
+    border: 5px solid #fff;
+    box-shadow: 0 5px 30px #000;
+    width: 300px;
+    height: 444px;
+    background: #000;
+    cursor: pointer;
+}
 

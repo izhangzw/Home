@@ -29,10 +29,6 @@
 <div class="loading-wrapper hidden">
 	<div class="loading"></div>
 </div>
-<header>
-	<a href="tel:13821100084"><i class="fa fa-volume-control-phone"></i><strong>13821100084</strong></a>
-	<a href="mailto:imlovinitz@163.com"><i class="fa fa-envelope"></i><strong>imlovinitz@163.com</strong></a>
-</header>
 <div class="main">
 	<div class="wrappage">
 		<div class="block captain">
@@ -48,22 +44,46 @@
 		</div>
 	</div>
 	
-	<section>1</section>
-	<section>2</section>
+	<!--<div class="characters">
+		<ul class="characters-list">
+			<li><a>Ray Liotta</a></li>
+			<li><a>Ray Liotta</a></li>
+			<li><a>Ray Liotta</a></li>
+		</ul>
+		<div class="characters-poster"></div>
+	</div>-->
+	
 </div>
+
 <footer>footer</footer>
 </body>
 <!--<script src="//cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>-->
 <script type="text/javascript" src="./js/jquery.js"></script>
 <script type="text/javascript" src="./js/base.js"></script>
+<script type="text/javascript" src="./js/jquery.jqDock.min.js"></script>
 <script type="text/javascript" src="./js/index.js"></script>
 <script type="text/javascript">
-window.onload = function(){
-	 //粒子效果
-	 loadParticle()
-}
-$(window).resize(function(){
-	loadParticle()
-})
+(function(window, $){
+	//加载粒子效果
+	var loadParticle = loadScript('js/canvas.particle.js', function(){
+		var config = {
+			vx: 4,
+			vy:  4,
+			height: 2,
+			width: 2,
+			count: 100,
+			color: "121, 162, 185",
+			stroke: "100,200,180",
+			dist: 6000,
+			e_dist: 20000,
+			max_conn: 10
+		}
+		CanvasParticle(config);
+	})
+	$(window).resize(function(){
+		loadParticle()
+	})
+})(window, jQuery)
+
 </script>
 </html>
