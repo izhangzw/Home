@@ -1,0 +1,67 @@
+@charset "utf-8";
+body{background: #eaeaea url('../img/bg.png')}
+a{transition: all .3s ease-out 0s;}
+.todo{ width: 70%; margin: 0 auto; padding-top: 50px }
+.todo .block{background-color: #F2F4F6;}
+.todo .block .title{font-weight: bold; padding: 5px 0;}
+.todo .block .items{}
+
+.todo .block .items .item{position: relative;padding: 2px 0;}
+.todo .block .items .item .tags{}
+.tag i{font-style: normal;color: #FF9E20; font-size: 18px;}
+.tag i.cage-l:before{ content: '['}
+.tag i.cage-r:before{ content: ']'}
+.tag b{color: #999}
+
+.movehandle{background: url(../img/move-a.png) repeat-y scroll 0 0 transparent; position: absolute; left: -20px; top: 2px;  bottom: 0px; width: 10px; cursor: grab; opacity: 1; }
+.movehandle:hover{opacity: 1;}
+.movehandle:active{ background-image: url("../img/move.png"); cursor: grabbing; }
+
+
+
+em.dot:before{ content: '.' }
+em.rod:before{ content: '-' }
+
+
+.todo .insert textarea{
+	background: 0;
+    border: 0;
+    box-shadow: none!important;
+    height: 26px;
+    line-height: 26px;
+    margin-bottom: 0;
+    padding: 0;
+    resize: none;
+    vertical-align: top;
+    width: 100%;
+    transition: background-color 1s ease-out 0s;
+}
+.insert textarea:focus{ background-color: #fff1a8; }
+
+.insert textarea::placeholder{color:#4DA6FF;transition: color 1s ease-out 0s;}
+.insert textarea::-moz-placeholder{color:#4DA6FF;transition: color 1s ease-out 0s;}
+.insert textarea:focus::-moz-placeholder { color: #6e6e6e;}
+
+.insert textarea::-webkit-placeholder{color:#4DA6FF;transition: color 1s ease-out 0s;}
+.insert textarea:focus::-webkit-placeholder{color:#6e6e6e;}
+
+.insert textarea::-webkit-input-placeholder{color:#4DA6FF;transition: color 1s ease-out 0s;}
+.insert textarea:focus::-webkit-input-placeholder{color:#6e6e6e; }
+
+.insert textarea::-ms-input-placeholder{color:#4DA6FF;transition: color 1s ease-out 0s;}
+.insert textarea:focus::-ms-input-placeholder{color:#6e6e6e; }
+
+
+.labels .label{
+	display: inline-block;
+    max-width: 80px;
+    min-width: 28px;
+    line-height: 18px;
+    padding: 0 6px;
+    margin-left: 5px;
+    text-align: center;
+    color: #fff;
+    background-color: #aaa;
+    border-radius: 9px;
+    font-size: 12px;
+}
