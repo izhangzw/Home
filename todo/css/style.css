@@ -1,7 +1,10 @@
 @charset "utf-8";
+/*Bootstrap: tooltip.js v3.3.7*/
+.tooltip{position:absolute;z-index:1070;display:block;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-style:normal;font-weight:normal;letter-spacing:normal;line-break:auto;line-height:1.42857143;text-align:left;text-align:start;text-decoration:none;text-shadow:none;text-transform:none;white-space:normal;word-break:normal;word-spacing:normal;word-wrap:normal;font-size:12px;opacity:0;filter:alpha(opacity=0)}.tooltip.in{opacity:.9;filter:alpha(opacity=90)}.tooltip.top{margin-top:-3px;padding:5px 0}.tooltip.right{margin-left:3px;padding:0 5px}.tooltip.bottom{margin-top:3px;padding:5px 0}.tooltip.left{margin-left:-3px;padding:0 5px}.tooltip-inner{max-width:200px;padding:3px 8px;color:#fff;text-align:center;background-color:#000;border-radius:4px;font-size:14px}.tooltip-arrow{position:absolute;width:0;height:0;border-color:transparent;border-style:solid}.tooltip.top .tooltip-arrow{bottom:0;left:50%;margin-left:-5px;border-width:5px 5px 0;border-top-color:#000}.tooltip.top-left .tooltip-arrow{bottom:0;right:5px;margin-bottom:-5px;border-width:5px 5px 0;border-top-color:#000}.tooltip.top-right .tooltip-arrow{bottom:0;left:5px;margin-bottom:-5px;border-width:5px 5px 0;border-top-color:#000}.tooltip.right .tooltip-arrow{top:50%;left:0;margin-top:-5px;border-width:5px 5px 5px 0;border-right-color:#000}.tooltip.left .tooltip-arrow{top:50%;right:0;margin-top:-5px;border-width:5px 0 5px 5px;border-left-color:#000}.tooltip.bottom .tooltip-arrow{top:0;left:50%;margin-left:-5px;border-width:0 5px 5px;border-bottom-color:#000}.tooltip.bottom-left .tooltip-arrow{top:0;right:5px;margin-top:-5px;border-width:0 5px 5px;border-bottom-color:#000}.tooltip.bottom-right .tooltip-arrow{top:0;left:5px;margin-top:-5px;border-width:0 5px 5px;border-bottom-color:#000}
+
 body{background: #eaeaea url('../img/bg.png')}
 a,b{transition: all .3s ease-out 0s;}
-.editable:hover{background-color: #EAEAEA; cursor: pointer; border-radius: 2px;}
+
 
 .todo{ width: 70%; margin: 0 auto; padding-top: 50px }
 .todo .block{background-color: #F2F4F6;}
@@ -21,44 +24,16 @@ a,b{transition: all .3s ease-out 0s;}
 .tag i.cage-r:before{ content: ']'}
 .tag b{color: #999}
 
-
-.movehandle{background: url(../img/move-a.png) repeat-y scroll 0 0 transparent; position: absolute; left: -20px; top: 2px;  bottom: 0px; width: 10px; cursor: grab; opacity: 1; }
-.movehandle:hover{opacity: 1;}
+.todo .block .items .item .meta{opacity: 0.5;transition: all .3s ease-out 0s;}
+.todo .block .items .item:hover .meta{opacity: 1;}
+.todo .block .items .item .meta .eTag{position: relative;}
+.movehandle{background: url(../img/move-a.png) repeat-y scroll 0 0 transparent; position: absolute; left: -20px; top: 2px;  bottom: 0px; width: 10px; cursor: grab; opacity: 0; transition: all .3s ease-out 0s;}
 .movehandle:active{ background-image: url("../img/move.png"); cursor: grabbing; }
-
+.todo .block .items .item:hover .movehandle{opacity: 1;}
 
 
 em.dot:before{ content: '.'; margin-left: -5px;}
 em.rod:before{ content: '-' }
-
-
-.todo .insert textarea{
-	background: 0;
-    border: 0;
-    box-shadow: none!important;
-    height: 26px;
-    line-height: 26px;
-    margin-bottom: 0;
-    padding: 0;
-    resize: none;
-    vertical-align: top;
-    width: 100%;
-    transition: background-color 1s ease-out 0s;
-}
-.insert textarea:focus{ background-color: #fff1a8; }
-
-.insert textarea::placeholder{color:#4DA6FF;transition: color 1s ease-out 0s;}
-.insert textarea::-moz-placeholder{color:#4DA6FF;transition: color 1s ease-out 0s;}
-.insert textarea:focus::-moz-placeholder { color: #6e6e6e;}
-
-.insert textarea::-webkit-placeholder{color:#4DA6FF;transition: color 1s ease-out 0s;}
-.insert textarea:focus::-webkit-placeholder{color:#6e6e6e;}
-
-.insert textarea::-webkit-input-placeholder{color:#4DA6FF;transition: color 1s ease-out 0s;}
-.insert textarea:focus::-webkit-input-placeholder{color:#6e6e6e; }
-
-.insert textarea::-ms-input-placeholder{color:#4DA6FF;transition: color 1s ease-out 0s;}
-.insert textarea:focus::-ms-input-placeholder{color:#6e6e6e; }
 
 
 .labels .label{
@@ -76,8 +51,129 @@ em.rod:before{ content: '-' }
 }
 
 
+/*******************insert pop**********************************/
+
+.insert-container{width: 230px; position: absolute;z-index: 10;opacity: 1;}
+.insert-container .insert-box{
+	padding: 15px;
+	box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    background: white;
+    border-radius: 5px;
+    color: black;
+    position: relative;
+    outline: none;
+    padding: 15px 15px 0;
+}
+
+.insert-container .insert-box .closeIcon{position: absolute;right: 0; top: -5px; color: inherit; cursor: pointer;padding: 5px}
+.insert-container .insert-box .closeIcon:hover{color: #999;/*transform:scale(1.2);-webkit-transform:scale(1.2);-moz-transform:scale(1.2);*/}
+.insert-container .insert-box .title{
+	color: inherit;
+	font-size: inherit;
+    font-family: inherit;
+    display: inline-block;
+    vertical-align: middle;
+    padding-bottom: 15px;
+    display: block;
+    font-size: 22px;
+    line-height: 20px;
+}
+.insert-container .insert-box .content{padding-bottom: 10px;}
+/*.insert-container .insert-box .content textarea{}*/
+
+.insert-container .insert-box .buttons{float: right;padding-bottom: 5px;margin-right: -10px;}
 
 
+
+
+/**********************通用***********************/
+[contenteditable]:hover{background-color: #EAEAEA; cursor: pointer; border-radius: 2px;}
+[contenteditable]:focus{background-color: #EAEAEA; border-radius: 2px;}
+
+.button{
+	display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+	box-shadow: none;
+    color: #333;
+    border: none;
+    background-image: none;
+    text-transform: uppercase;
+    font-size: 14px;
+    font-weight: bold;
+    text-shadow: none;
+    border-radius: 3px;
+    -webkit-transition: background .2s;
+    transition: background .2s;
+}
+.button:hover{
+	background: #DDD;
+}
+
+.button.btn-cancel{color: grey}
+
+.button.btn-success{}
+
+
+
+textarea.insert{
+	background: 0;
+    border: 0;
+    box-shadow: none;
+    height: 26px;
+    line-height: 26px;
+    margin-bottom: 0;
+    padding: 0;
+    resize: none;
+    vertical-align: top;
+    width: 100%;
+    transition: background-color 1s ease-out 0s;
+}
+textarea.insert:focus{ background-color: #fff1a8; }
+
+textarea.insert::placeholder,
+textarea.insert::-moz-placeholder,
+textarea.insert::-webkit-placeholder,
+textarea.insert::-webkit-input-placeholder,
+textarea.insert::-ms-input-placeholder{color:#4DA6FF;transition: color 1s ease-out 0s;}
+textarea.insert:focus::-moz-placeholder,
+textarea.insert:focus::-webkit-placeholder,
+textarea.insert:focus::-webkit-input-placeholder,
+textarea.insert:focus::-ms-input-placeholder{color:#6e6e6e; }
+
+textarea.insert.border{
+	box-sizing: border-box;
+    -webkit-appearance: none;
+    background-color: #E2E4E6;
+    border: 1px solid #CDD2D4;
+    border-radius: 3px;
+    line-height: 18px;
+    padding: 7px;
+    -webkit-transition: background 85ms ease-in,border-color 85ms ease-in;
+       -moz-transition: background 85ms ease-in,border-color 85ms ease-in;
+            transition: background 85ms ease-in,border-color 85ms ease-in;
+}
+textarea.insert.border:focus{
+  background: #fff;
+  border-color: #298FCA;
+  outline: 0;
+  outline: thin dotted \9;
+  /* IE6-9 */
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+     -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(82, 168, 236, 0.6);
+}
+
+
+
+
+
+
+
+
+
+
+/******************************字体图标******************************/
 @font-face {font-family: "iconfont";
   src: url('../font/iconfont.eot?t=1501598664771'); /* IE9*/
   src: url('../font/iconfont.eot?t=1501598664771#iefix') format('embedded-opentype'), /* IE6-IE8 */

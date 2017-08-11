@@ -1,11 +1,3 @@
-/**
- * update 2016-10-19
- * + user-select - 禁止复制、选中文本
- * + overflow-scrolling
- * 新增 .fadeIn500
- * 修改center-vertical兼容性
- * 新增border-1px-bottom...
- */
 @charset "utf-8";
 html{font-family: "STHeiti","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif;}
 html,body,header,section,footer,div,ul,ol,li,img,a,span,em,del,legend,center,strong,var,fieldset,form,label,dl,dt,dd,cite,input,hr,time,mark,code,figcaption,figure,textarea,h1,h2,h3,h4,h5,h6,p{margin:0;border:0;padding:0;font-style:normal;color:rgb(50,50,50);font-size: 16px;}
@@ -36,15 +28,6 @@ body{width: 100%; height: 100%; background-color: #999;
 -webkit-overflow-scrolling: touch;
 overflow-scrolling: touch;
 }
-/*20150923 edit*/
-html{font-size:10px}
-@media screen and (min-width:321px) and (max-width:375px){html{font-size:11px}}
-@media screen and (min-width:376px) and (max-width:414px){html{font-size:12px}}
-@media screen and (min-width:415px) and (max-width:639px){html{font-size:15px}}
-@media screen and (min-width:640px) and (max-width:719px){html{font-size:20px}}
-@media screen and (min-width:720px) and (max-width:749px){html{font-size:22.5px}}
-@media screen and (min-width:750px) and (max-width:799px){html{font-size:23.5px}}
-@media screen and (min-width:800px){html{font-size:25px}}
 /*去掉ios系统中元素被触摸时产生的半透明灰色遮罩*/
 a,button,input,textarea{-webkit-tap-highlight-color: rgba(0,0,0,0;)}
 /*去掉部分android系统中元素被点击时产生的边框*/
@@ -1228,7 +1211,12 @@ http://daneden.me/animate
           animation-delay: .5s;
   -webkit-animation-delay: .5s;
 }
-
+.fadeInFast{
+  -webkit-animation-name: fadeIn;
+          animation-name: fadeIn;
+-webkit-animation-duration: .5s;
+		animation-duration: .5s;
+}
 @-webkit-keyframes fadeInDown {
   0% {
     opacity: 0;
@@ -1506,6 +1494,13 @@ http://daneden.me/animate
 .fadeOut {
   -webkit-animation-name: fadeOut;
           animation-name: fadeOut;
+}
+
+.fadeOutFast{
+  -webkit-animation-name: fadeOut;
+          animation-name: fadeOut;
+-webkit-animation-duration: .5s;
+		animation-duration: .5s;
 }
 
 @-webkit-keyframes fadeOutDown {

@@ -19,14 +19,32 @@
 <body>
 <div class="todo">
 	<div class="insert">
-		<textarea placeholder="Ctrl+Enter = 提交"></textarea>
+		<textarea class="insert" placeholder="Ctrl+Enter = 提交"></textarea>
 	</div>
 	<div id="blocks"></div>
 </div>
+
+
+<!--<div class="insert-container">
+	<div class="insert-box">
+		<div class="closeIcon hidden">×</div>
+		<div class="title"></div>
+		<div class="content">
+			<textarea class="insert border" placeholder="点击输入标签名"></textarea>
+		</div>
+		<div class="buttons">
+			<a class="button btn-cancel">取消</a>
+			<a class="button btn-success">添加</a>
+		</div>
+		<div class="clearfix"></div>
+	</div>
+</div>-->
+
+
 <script type="text/x-jquery-tmpl" id="tmpl_block">
 	{{each datas}}
 	{{if items&&items.length}}
-	<div class="block">
+	<div class="block" pid="${$index}">
 		<div class="title">
 			<strong title="${util.formatDate(title)}">${util.formatTitle(title)}</strong>
 			{{if labels&&labels.length}}
@@ -46,29 +64,35 @@
 	{{/each}}
 </script>
 <script type="text/x-jquery-tmpl" id="tmpl_item">
-	<li class="item">
+	<li class="item" id="${id}">
 		<span class="tags">
 		{{if tags&&tags.length}}
 			{{each tags}}
-			<a class="tag"><i class="cage-l"></i><b class="editable">${name}</b><i class="cage-r"></i></a>
+				{{tmpl($value) '#tmpl_tag'}}
 			{{/each}}
 			<em class="dot"></em>
 		{{else}}
-			<a class="tag null"><i class="cage-l"></i><b class="editable">    </b><i class="cage-r"></i></a>
+			<a class="tag null"><i class="cage-l"></i><b contenteditable>    </b><i class="cage-r"></i></a>
 		{{/if}}
 		</span>
-		<a class="txt editable">${txt}</a>
+		<a class="txt" contenteditable>${txt}</a>
 		<p class="meta">
 			<a class="eTag"><i class="iconfont icon-tag"></i></a>
 			<a class="eTime"><i class="fa fa-calendar-o"></i></a>
 		</p>
-		<!--<a class="movehandle"></a>-->
+		<a class="movehandle"></a>
 	</li>
+</script>
+<script type="text/x-jquery-tmpl" id="tmpl_tag">
+	<a class="tag" id="${id}"><i class="cage-l"></i><b contenteditable>${name}</b><i class="cage-r"></i></a>
 </script>
 </body>
 <script src="js/libs/jquery/jquery.js"></script>
 <script src="js/libs/moment/moment.min.js"></script>
 <script src="js/libs/tmpl/jquery.tmpl.min.js"></script>
+<script src="js/datas.js"></script>
+<script src="js/modules/ldb.js"></script>
 <script src="js/base.js"></script>
 <script src="js/index.js"></script>
+<script src="js/modules/item.js"></script>
 </html>
